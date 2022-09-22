@@ -21,19 +21,21 @@ body {
   cursor: pointer;
 }
 
-.button:hover, .button:active{
+.button:hover,
+.button:active {
   background-color: #1a385d;
 }
 
-.btn-delete{
+.btn-delete {
   background-color: #703e3e;
 }
 
-.btn-delete:hover, .btn-delete:active{
+.btn-delete:hover,
+.btn-delete:active {
   background-color: #7f1515;
 }
 
-.button-container{
+.button-container {
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -51,6 +53,12 @@ body {
   box-shadow: 2px 15px -12px rgba(0, 0, 0, 0.57);
 }
 
+.color-circles{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .color-circle {
   width: 50px;
   height: 50px;
@@ -60,7 +68,8 @@ body {
 }
 
 
-.disabledButton {
+
+.disabledButton, .disabledButton:hover {
   background-color: #d8d8d8;
   cursor: not-allowed;
 }
@@ -108,7 +117,7 @@ li {
 }
 
 .out-of-stock-img {
-  opacity:0.5
+  opacity: 0.5;
 }
 
 p {
@@ -132,7 +141,7 @@ p {
   width: 50%;
 }
 
-.product-sizes{
+.product-sizes {
   font-size: 20px;
   font-weight: 700;
 }
@@ -203,4 +212,25 @@ ul {
   .review-form {
     width: 90%;
   }
+}
+
+.sale-bage {
+  color: white;
+  font-size: 19px;
+  display: inline-block;
+  width: 5rem;
+  height: 2rem;
+  background: #108907;
+  text-transform: uppercase;
+  box-shadow: 1px 1px #eccece;
+  padding: 50;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.limited-bage{
+  background-color: #7f1515;
+  width: 5rem;
 }
