@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Vue Mastery</title>
+  <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
   <!-- Import Styles -->
   <link rel="stylesheet" href="./assets/styles.css" />
   <!-- Import Vue.js -->
@@ -21,17 +22,28 @@
         </div>
         <div class="product-info">
           <h1>{{ product }}</h1>
-          <a :href="link">dont trust quotes</a>
-          <p>{{remain}} pcs left!</p>
-          <p v-if="remain === 0">Out of stock</p>
-          <p v-if="remain < 30 && remain > 0">On sale.
-            <span v-if="remain <= 10 && remain > 0">No time to think!</span>
-          </p>
+          
+          <div class="product-description">
+            <ul>
+              <li v-for="detail in details">{{detail}}</li>
+            </ul>
+           <p> <span v-for="size in sizes">{{size}},  </span> </p>
+          </div>
+          
+          <div class="product-remain">
+            <p>{{remain}} pcs left!</p>
+            <p v-if="remain === 0">Out of stock</p>
+            <p v-if="remain < 30 && remain > 0">On sale.
+              <span v-if="remain <= 10 && remain > 0">No time to think!</span>
+            </p>
+            <p v-else-if="remain >=30">Enough remains, no panic</p>
+          </div>
 
-          <p v-else-if="remain >=30">Enough remains, no panic</p>
+          
         </div>
       </div>
     </div>
+    <a :href="link">dont trust quotes</a>
   </div>
 
   <!-- Import Vue app that we've craeted inside js file -->
