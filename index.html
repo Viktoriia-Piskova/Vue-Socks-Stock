@@ -24,8 +24,13 @@
         </div>
         <div class="product-info">
           <h1>{{ product }} </h1>
-          <div v-if="remain < 30 && remain > 0" class="sale-bage">sale</div>
-          <div v-if="remain <= 10 && remain > 0" class="sale-bage limited-bage">limited</div>
+
+          <div class="product-badges">
+            <div v-if="!inStock" class="sale-badge out-of-stock-badge">sold out</div>
+            <div v-if="isNew" class="sale-badge new-badge">new</div>
+            <div v-if="onSale" class="sale-badge">sale</div>
+            <div v-if="isLimited" class="sale-badge limited-badge">limited</div>
+          </div>
 
           <div class="product-description">
             <ul>
@@ -35,12 +40,12 @@
           </div>
 
           <div class="product-remain">
-            <p>{{remain}} pcs left!</p>
+            <p>{{quantity}} pcs left!</p>
           </div>
 
           <div class="color-circles">
-            <div class="color-circle" v-for="variant in variants" :style="{'background-color': variant.color}"
-              :key="variant.id" @mouseover="updateImage(variant.image)">
+            <div class="color-circle" v-for="(variant, index) in variants" :style="{'background-color': variant.color}"
+              :key="variant.id" @mouseover="updateVariant(index)">
             </div>
           </div>
 

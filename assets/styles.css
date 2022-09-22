@@ -214,7 +214,7 @@ ul {
   }
 }
 
-.sale-bage {
+.sale-badge {
   color: white;
   font-size: 19px;
   display: inline-block;
@@ -230,7 +230,17 @@ ul {
   margin: 10px;
 }
 
-.limited-bage{
+.limited-badge{
   background-color: #7f1515;
+  width: 5rem;
+}
+
+.out-of-stock-badge{
+  background-color: #353232;
+  width: 7rem;
+}
+
+.new-badge{
+  background-color: #19078b;
   width: 5rem;
 }
