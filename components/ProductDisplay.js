@@ -59,8 +59,8 @@ app.component('product-display', {
       variants: [
         { id: 2234, color: 'green', image: './assets/images/socks_green.jpg', quantity: 50, isNew: true },
         { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 28, isNew: false },
-        { id: 2235, color: 'red', image: './assets/images/socks_red.jpg', quantity: 0, isNew: false },
-        { id: 2235, color: 'orange', image: './assets/images/socks_orange.jpg', quantity: 5, isNew: true }
+        { id: 2236, color: 'red', image: './assets/images/socks_red.jpg', quantity: 0, isNew: false },
+        { id: 2237, color: 'orange', image: './assets/images/socks_orange.jpg', quantity: 5, isNew: true }
       ]
 
     }
@@ -68,11 +68,11 @@ app.component('product-display', {
 
   methods: {
     addToCart() {
-      this.cart += 1
+      this.$emit('add-to-cart-dis', this.variants[this.selectedVariant].id)
     },
 
     removeFromCart() {
-      this.cart -= 1;
+      this.$emit('remove-id-from-cart', this.variants[this.selectedVariant].id)
     },
 
     updateVariant(index) {

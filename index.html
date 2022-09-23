@@ -13,9 +13,9 @@
 <body>
   <div id="app">
     <div class="nav-bar"></div>
-    <div class="cart">Cart({{ cart }}) {{premium}}</div>
+    <div class="cart">Cart({{ cart }}) {{quantityInCart}}</div>
 
-    <product-display :comppremium="premium"> </product-display>
+    <product-display @remove-id-from-cart="removeIdFromCart" @add-to-cart-dis="addIdToCart" :comppremium="premium"> </product-display>
 
   </div>
 
