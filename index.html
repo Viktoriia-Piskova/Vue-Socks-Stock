@@ -5,67 +5,28 @@
   <meta charset="UTF-8" />
   <title>Vue Mastery</title>
   <link rel="shortcut icon" href="./assets/images/favicon.ico" type="image/x-icon">
-  <!-- Import Styles -->
   <link rel="stylesheet" href="./assets/styles.css" />
-  <!-- Import Vue.js -->
+  <!-- Import Vue.js via CDN -->
   <script src="https://unpkg.com/vue@3.0.0-beta.12/dist/vue.global.js"></script>
 </head>
 
 <body>
   <div id="app">
     <div class="nav-bar"></div>
+    <div class="cart">Cart({{ cart }}) {{premium}}</div>
 
-    <div class="cart">Cart({{ cart }})</div>
+    <product-display :comppremium="premium"> </product-display>
 
-    <div class="product-display">
-      <div class="product-container">
-        <div class="product-image">
-          <img :class="[inStock ? '' : 'out-of-stock-img']" :src="image" alt="">
-        </div>
-        <div class="product-info">
-          <h1>{{ product }} </h1>
-
-          <div class="product-badges">
-            <div v-if="!inStock" class="sale-badge out-of-stock-badge">sold out</div>
-            <div v-if="isNew" class="sale-badge new-badge">new</div>
-            <div v-if="onSale" class="sale-badge">sale</div>
-            <div v-if="isLimited" class="sale-badge limited-badge">limited</div>
-          </div>
-
-          <div class="product-description">
-            <ul>
-              <li v-for="detail in details">{{detail}}</li>
-            </ul>
-            <p class="product-sizes"> <span v-for="size in sizes">{{size}}, </span> </p>
-          </div>
-
-          <div class="product-remain">
-            <p>{{quantity}} pcs left!</p>
-          </div>
-
-          <div class="color-circles">
-            <div class="color-circle" v-for="(variant, index) in variants" :style="{'background-color': variant.color}"
-              :key="variant.id" @mouseover="updateVariant(index)">
-            </div>
-          </div>
-
-          <div class="button-container">
-            <button class="button" @click="addToCart" :disabled="!inStock" :class="{disabledButton: !inStock}">Add to
-              Cart</button>
-
-            <button @click="removeFromCart" class="button btn-delete" :disabled="cart <= 0"
-              :class="{disabledButton: cart <= 0}">Delete</button>
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-    <a :href="link">dont trust quotes</a>
   </div>
 
   <!-- Import Vue app that we've craeted inside js file -->
   <script src="./main.js"></script>
+  <!-- Import product-display component that we've craeted using method of app -->
+  <script src="./components/ProductDisplay.js"></script>
+  <!-- Import anothery component that is used inside our product-display component -->
+  <script src="./components/ProductDetails.js"></script>
+
+
   <!--mount our app (created in main.js) into part of our DOM-->
   <script>
     const mountedApp = app.mount('#app')
