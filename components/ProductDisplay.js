@@ -43,6 +43,8 @@ app.component('product-display', {
           </div>
         </div>
       </div>
+      <reviews-list v-if="reviews.length" :reviews="reviews"></reviews-list>
+      <review-form @review-submited="addReview"></review-form>
     </div>`
   ,
 
@@ -61,7 +63,8 @@ app.component('product-display', {
         { id: 2235, color: 'blue', image: './assets/images/socks_blue.jpg', quantity: 28, isNew: false },
         { id: 2236, color: 'red', image: './assets/images/socks_red.jpg', quantity: 0, isNew: false },
         { id: 2237, color: 'orange', image: './assets/images/socks_orange.jpg', quantity: 5, isNew: true }
-      ]
+      ],
+      reviews: []
 
     }
   },
@@ -77,6 +80,10 @@ app.component('product-display', {
 
     updateVariant(index) {
       this.selectedVariant = index
+    },
+
+    addReview(review){
+      this.reviews.push(review)
     }
   },
 

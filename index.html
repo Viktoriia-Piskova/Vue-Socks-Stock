@@ -13,18 +13,24 @@
 <body>
   <div id="app">
     <div class="nav-bar"></div>
-    <div class="cart">Cart({{ cart }}) {{quantityInCart}}</div>
+    <div class="cart">Cart({{quantityInCart}}) </div>
 
     <product-display @remove-id-from-cart="removeIdFromCart" @add-to-cart-dis="addIdToCart" :comppremium="premium"> </product-display>
-
+    
   </div>
 
   <!-- Import Vue app that we've craeted inside js file -->
   <script src="./main.js"></script>
   <!-- Import product-display component that we've craeted using method of app -->
   <script src="./components/ProductDisplay.js"></script>
-  <!-- Import anothery component that is used inside our product-display component -->
+  <!-- Import another component that is used inside our product-display component -->
   <script src="./components/ProductDetails.js"></script>
+  <!-- Import component for review form -->
+  <script src="./components/ReviewForm.js"></script>
+  <!-- Import component for displaying reviews in a list  -->
+  <script src="./components/ReviewsList.js"></script>
+
+
 
 
   <!--mount our app (created in main.js) into part of our DOM-->
